@@ -13,7 +13,7 @@ const markup = galleryItems.map(({ preview, original, description })=>
           <img
           class="gallery__image"
           src="${preview}"
-        
+       
           alt="${description}"
          
         /> 
@@ -27,15 +27,11 @@ galleryEl.insertAdjacentHTML("beforeend", markup);
 
 let gallery = new SimpleLightbox(".gallery a");
 
+console.log(gallery);
+    
+
 
 gallery.on('show.simplelightbox', function () {
-    gallery.options.captions = false
-    gallery.options.captionDelay = 30000
-    gallery.options.captionType = "data"
-    gallery.options.captionsData="${description}"
-    console.log(gallery);
+  gallery.options.captionsData = "alt"
+  gallery.options.captionDelay = 250
 });
-
-// // gallery.on('error.simplelightbox', function (e) {
-// // 	console.log(e); // some usefull information
-// });
